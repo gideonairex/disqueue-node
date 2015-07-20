@@ -22,9 +22,7 @@ new Disqueue()
 
 					} )
 					.then( function( result ) {
-						console.log( colors.green( '----------SUCCESS-----------' ) );
 						console.log( result );
-						console.log( colors.green( '----------SUCCESS-----------' ) );
 					} )
 					.catch( function ( error ) {
 
@@ -34,9 +32,7 @@ new Disqueue()
 
 				disqueue.request( 'v1.users.get', 'YAmii' + i , 0 )
 					.then( function( yami ) {
-						console.log( colors.green( '----------SUCCESS-----------' ) );
 						console.log( yami );
-						console.log( colors.green( '----------SUCCESS-----------' ) );
 					} );
 
 			}
