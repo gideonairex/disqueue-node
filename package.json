@@ -1,0 +1,23 @@
+{
+  "name": "disqueue-node",
+  "version": "1.0.0",
+  "description": "node.js client for disqueue",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "node.js",
+    "client",
+    "disqueue"
+  ],
+  "author": "Gideon Rosales",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^2.9.33",
+    "colors": "^1.1.2",
+    "hiredis": "^0.4.0",
+    "lodash": "^3.10.0",
+    "node-uuid": "^1.4.3"
+  }
+}
