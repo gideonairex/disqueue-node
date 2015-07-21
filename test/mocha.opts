@@ -1,0 +1,6 @@
+--reporter spec
+--ui bdd
+--recursive
+--timeout 5000
+--bail
+--growl

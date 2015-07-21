@@ -1,0 +1,20 @@
+language: node_js
+
+node_js:
+  - "0.12.4"
+
+before_install:
+  - npm install -g npm
+
+install:
+  - npm install
+
+before_script:
+  - git clone https://github.com/antirez/disque.git disque_server
+  - "cd disque_server/src/ && make && PREFIX=../ make install && cd -"
+  - "./disque_server/bin/disque-server &"
+  - ./disque_server/bin/disque PING
+
+scripts:
+  - npm run lint
+  - npm test

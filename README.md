@@ -1,13 +1,15 @@
 # disqueue-node client
+[![Build Status](https://travis-ci.org/gideonairex/disqueue-node.svg?branch=master)](https://travis-ci.org/gideonairex/disqueue-node)
+
 This is a Disqueue client using node.js. This can handle **RPC**. 
 
-# Setup
-Install [Disqueue](https://github.com/antirez/disque)
+## Setup
+Install [Disque](https://github.com/antirez/disque)
 
 ### How to use
 Connect to disqueue then you can use the connected disqueue( [examples](https://github.com/gideonairex/disqueue-node/tree/master/example) )
 
-# API
+## API
 1. ```disqueue.request( <queue>, <job>, <timeout> )``` - This returns a Promise object. [bluebird](https://github.com/petkaantonov/bluebird)
 2. ```disqueue.respond( <queue>, <cb> )```
   * ```<queue>``` - queue to respond to.
@@ -17,7 +19,7 @@ Connect to disqueue then you can use the connected disqueue( [examples](https://
       * ```send( null, result )```
 3. ```disqueue.registerListeners( [ <queue>,<queue1> ] )``` - queues to listen to.
 
-# Client
+## Client
 ```javascript
 'use strict'
 
@@ -47,7 +49,7 @@ new Disqueue( 7711, 'localhost' )
   } );
 ```
 
-# Server
+## Server
 
 ```javascript
 'use strict'
@@ -75,7 +77,11 @@ new Disqueue( 7711, 'localhost' )
     
   } )
 ```
+## Test
+```
+npm test
+npm run lint
+```
 
-# Todo
-1. Unit tests
+## Todo
 2. Benchmark

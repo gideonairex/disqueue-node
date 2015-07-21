@@ -3,7 +3,7 @@
 var Disqueue = require( '../lib' );
 
 new Disqueue()
-	.then( function( disqueue ) {
+	.then( function ( disqueue ) {
 
 		disqueue.registerListeners( [ 'v1.users.get', 'v1.users.save', 'v1.users.list' ] );
 
@@ -18,7 +18,7 @@ new Disqueue()
 
 		disqueue.respond( 'v1.users.get', function ( message, send ) {
 
-			setTimeout( function() {
+			setTimeout( function () {
 				send( null, message );
 			}, Math.random() * 1000 );
 
@@ -26,11 +26,10 @@ new Disqueue()
 
 		disqueue.respond( 'v1.users.list', function ( message, send ) {
 
-			setTimeout( function() {
+			setTimeout( function () {
 				send( null, message + ' and BYE' );
 			}, Math.random() * 1000 );
 
 		} );
-
 
 	} );
