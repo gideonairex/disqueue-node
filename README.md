@@ -6,18 +6,35 @@ This is a Disqueue client using node.js. This can handle **RPC**.
 ## Setup
 Install [Disque](https://github.com/antirez/disque)
 
-### How to use
+## How to use
 Connect to disqueue then you can use the connected disqueue( [examples](https://github.com/gideonairex/disqueue-node/tree/master/example) )
 
 ## API
-1. ```disqueue.request( <queue>, <job>, <timeout> )``` - This returns a Promise object. [bluebird](https://github.com/petkaantonov/bluebird)
-2. ```disqueue.respond( <queue>, <cb> )```
+* ```disqueue.request( <queue>, <job>, <timeout> )``` - This returns a Promise object. [bluebird](https://github.com/petkaantonov/bluebird)
+* ```disqueue.respond( <queue>, <cb> )```
   * ```<queue>``` - queue to respond to.
   * ```<cb>``` - callback contains ```(<message>,<send>)```
     * ```<message>``` - message from the requester.
     * ```<send>``` - send object that returns for error or result.
       * ```send( null, result )```
-3. ```disqueue.registerListeners( [ <queue>,<queue1> ] )``` - queues to listen to.
+* ```disqueue.registerListeners( [ <queue>,<queue1> ] )``` - queues to listen to.
+
+## Authentication
+To connect to disque just add password
+```javascript
+
+var options = {
+ 'auth' : {
+  'password' : 'gideonairex'
+ }
+};
+
+new Disqueue( 7711, 'localhost', options )
+  .then( function( disqueue ) {
+   // Do something
+  } )
+  
+```
 
 ## Client
 ```javascript
@@ -84,4 +101,5 @@ npm run lint
 ```
 
 ## Todo
+1. Add an option to just use 1 tcp and use NOHANGUP
 2. Benchmark

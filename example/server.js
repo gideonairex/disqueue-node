@@ -2,7 +2,11 @@
 
 var Disqueue = require( '../lib' );
 
-new Disqueue()
+new Disqueue( 7711, 'localhost', {
+	'auth' : {
+		'password' : 'gideonairex'
+	}
+} )
 	.then( function ( disqueue ) {
 
 		disqueue.registerListeners( [ 'v1.users.get', 'v1.users.save', 'v1.users.list' ] );
