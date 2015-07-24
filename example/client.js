@@ -2,9 +2,9 @@
 
 var Disqueue = require( '../lib' );
 
-new Disqueue( 7711, 'localhost', {
+new Disqueue( {
 	'auth' : {
-		'password' : 'gideonairex'
+		'password' : 'gideonairexs'
 	}
 } )
 	.then( function ( disqueue ) {

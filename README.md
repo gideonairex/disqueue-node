@@ -22,6 +22,7 @@ Connect to disqueue then you can use the connected disqueue( [examples](https://
 ## Authentication
 To connect to disque just add password
 ```javascript
+'use strict';
 
 var options = {
  'auth' : {
@@ -34,6 +35,22 @@ new Disqueue( 7711, 'localhost', options )
    // Do something
   } )
   
+```
+Or you just add options and use the default port and host
+```javascript
+'use strict';
+
+var options = {
+ 'auth' : {
+  'password' : 'gideonairex'
+ }
+};
+
+new Disqueue( options )
+  .then( function( disqueue ) {
+   // Do something
+  } )
+
 ```
 
 ## Client
