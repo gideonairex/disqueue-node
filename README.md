@@ -1,6 +1,5 @@
-[![Stories in Ready](https://badge.waffle.io/gideonairex/disqueue-node.png?label=ready&title=Ready)](https://waffle.io/gideonairex/disqueue-node)
 # disqueue-node client
-[![Build Status](https://travis-ci.org/gideonairex/disqueue-node.svg?branch=master)](https://travis-ci.org/gideonairex/disqueue-node)[![Dependency Status](https://david-dm.org/gideonairex/disqueue-node.svg)](https://david-dm.org/gideonairex/disqueue-node)[![Code Climate](https://codeclimate.com/github/gideonairex/disqueue-node/badges/gpa.svg)](https://codeclimate.com/github/gideonairex/disqueue-node)
+[![Build Status](https://travis-ci.org/gideonairex/disqueue-node.svg?branch=master)](https://travis-ci.org/gideonairex/disqueue-node)[![Dependency Status](https://david-dm.org/gideonairex/disqueue-node.svg)](https://david-dm.org/gideonairex/disqueue-node)[![Code Climate](https://codeclimate.com/github/gideonairex/disqueue-node/badges/gpa.svg)](https://codeclimate.com/github/gideonairex/disqueue-node)[![Stories in Ready](https://badge.waffle.io/gideonairex/disqueue-node.png?label=ready&title=Ready)](https://waffle.io/gideonairex/disqueue-node)
 
 This is a Disqueue client using node.js. This can handle **RPC**.
 
