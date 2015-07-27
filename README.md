@@ -1,7 +1,7 @@
 # disqueue-node client
 [![Build Status](https://travis-ci.org/gideonairex/disqueue-node.svg?branch=master)](https://travis-ci.org/gideonairex/disqueue-node)
 
-This is a Disqueue client using node.js. This can handle **RPC**. 
+This is a Disqueue client using node.js. This can handle **RPC**.
 
 ## Setup
 Install [Disque](https://github.com/antirez/disque)
@@ -17,7 +17,6 @@ Connect to disqueue then you can use the connected disqueue( [examples](https://
     * ```<message>``` - message from the requester.
     * ```<send>``` - send object that returns for error or result.
       * ```send( null, result )```
-* ```disqueue.registerListeners( [ <queue>,<queue1> ] )``` - queues to listen to.
 
 ## Authentication
 To connect to disque just add password
@@ -34,7 +33,7 @@ new Disqueue( 7711, 'localhost', options )
   .then( function( disqueue ) {
    // Do something
   } )
-  
+
 ```
 Or you just add options and use the default port and host
 ```javascript
@@ -61,7 +60,7 @@ var Disqueue = require( 'disqueue-node' );
 
 new Disqueue( 7711, 'localhost' )
   .then( function( disqueue ) {
-  
+
     disqueue.request( 'job', 'Job 1 request', <timeout> )
       .then( function( jobResult ) {
         // Do something
@@ -69,7 +68,7 @@ new Disqueue( 7711, 'localhost' )
       .catch( function( jobError ) {
         // Do some error handling
       } )
-      
+
     disqueue.request( 'job2', 'Job 2 request', <timeout> )
       .then( function( jobResult ) {
         // Do something
@@ -77,7 +76,7 @@ new Disqueue( 7711, 'localhost' )
       .catch( function( jobError ) {
         // Do some error handling
       } )
-      
+
   } )
   .catch( function( error ) {
   } );
@@ -92,23 +91,21 @@ var Disqueue = require( 'disqueue-node' );
 
 new Disqueue( 7711, 'localhost' )
   .then( function( disqueue ) {
-  
-    disqueue.registerListeners( [ 'job','job2' ] );
-    
+
     disqueue.respond( 'job', function ( message, send ) {
       send( null, 'Hello world' );
     } );
-    
+
     // You can also request inside the respond
      disqueue.respond( 'job2', function ( message, send ) {
-     
+
       disqueue.request( 'job', 'Nested job', 0 )
         .then( function ( jobResult ) {
           send( null, 'Hello world' );
         } );
-      
+
     } );
-    
+
   } )
 ```
 ## Test

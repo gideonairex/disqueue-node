@@ -52,7 +52,6 @@ describe( 'DisqueueHandler', function () {
 
 		before( function ( done ) {
 
-			disqueue.registerListeners( [ 'job' ] );
 			disqueue.respond( 'job', function ( message, send ) {
 				request = message;
 				return send( null, [ message, 'World' ].join( ' ' ) );

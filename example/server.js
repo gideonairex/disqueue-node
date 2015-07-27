@@ -9,8 +9,6 @@ new Disqueue( 7711, 'localhost', {
 } )
 	.then( function ( disqueue ) {
 
-		disqueue.registerListeners( [ 'v1.users.get', 'v1.users.save', 'v1.users.list' ] );
-
 		disqueue.respond( 'v1.users.save', function ( message, send ) {
 
 			return disqueue.request( 'v1.users.list', 'HI', 0 )
