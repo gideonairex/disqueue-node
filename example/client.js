@@ -18,8 +18,8 @@ disque.on( 'connected', function () {
 	var server = http.createServer( function ( request, reply ) {
 
 		disque.addJob( {
-			'queue'   : 'test',
-			'job'     : 'Hello world'
+			'queue' : 'test',
+			'job'   : 'Hello world'
 		}, function ( error, data ) {
 
 			reply.end( data );

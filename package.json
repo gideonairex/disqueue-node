@@ -18,13 +18,14 @@
     "node.js",
     "client",
     "disque",
-		"rpc"
+    "rpc"
   ],
   "author": "Gideon Rosales",
   "license": "MIT",
   "dependencies": {
     "bluebird": "^2.9.33",
     "colors": "^1.1.2",
+    "double-ended-queue": "^0.9.7",
     "hiredis": "^0.4.0",
     "lodash": "^3.10.0",
     "node-uuid": "^1.4.3"
@@ -32,7 +33,6 @@
   "devDependencies": {
     "eslint": "^0.24.1",
     "jscs": "^1.13.1",
-    "lodash": "^3.10.0",
     "mocha": "^2.2.5",
     "should": "^7.0.2"
   }

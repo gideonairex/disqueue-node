@@ -29,13 +29,13 @@ function getJob () {
 
 			//} );
 
-			disque.nack( jobIds, function ( error, nack ) {
+			disque.nack( jobIds, function ( errorNack, nack ) {
 
 				console.log( nack );
 
 			} );
 
-			disque.fastAck( jobIds, function ( error, ack ) {
+			disque.fastAck( jobIds, function ( errorFastAck, ack ) {
 
 				console.log( ack );
 
