@@ -1,37 +1,53 @@
 'use strict';
 
-var Disqueue = require( '../lib' );
+var Disqueue = require( '../lib/disqueue-client' );
 
-new Disqueue( 7711, 'localhost', {
-	'auth' : {
-		'password' : 'gideonairex'
-	}
-} )
-	.then( function ( disqueue ) {
+var disque = new Disqueue( {
+	//'auth' : {
+		//'password' : 'gideonairex'
+	//}
+} );
 
-		disqueue.respond( 'v1.users.save', function ( message, send ) {
+function getJob () {
 
-			return disqueue.request( 'v1.users.list', 'HI', 0 )
-				.then( function ( d ) {
-					send( null, message + ' Gideonairex' + d );
-				} );
+	disque.getJob( {
+		'count' : 10,
+		'queue' : 'test'
+	}, function ( error, data ) {
 
-		} );
+		var jobIds = [];
 
-		disqueue.respond( 'v1.users.get', function ( message, send ) {
+		if ( data ) {
 
-			setTimeout( function () {
-				send( null, message );
-			}, Math.random() * 1000 );
+			data.forEach( function ( job ) {
+				jobIds.push( job[ 1 ] );
+			} );
 
-		} );
+			//disque.show( jobIds, function ( error, nack ) {
 
-		disqueue.respond( 'v1.users.list', function ( message, send ) {
+				//console.log( nack );
 
-			setTimeout( function () {
-				send( null, message + ' and BYE' );
-			}, Math.random() * 1000 );
+			//} );
 
-		} );
+			disque.nack( jobIds, function ( error, nack ) {
+
+				console.log( nack );
+
+			} );
+
+			disque.fastAck( jobIds, function ( error, ack ) {
+
+				console.log( ack );
+
+			} );
+
+			getJob();
+		} else {
+			getJob();
+		}
 
 	} );
+
+}
+
+getJob();

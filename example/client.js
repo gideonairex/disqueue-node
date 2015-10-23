@@ -1,41 +1,33 @@
 'use strict';
 
-var Disqueue = require( '../lib' );
+var http = require( 'http' );
+var Disqueue = require( '../lib/disqueue-client' );
 
-new Disqueue( {
-	'auth' : {
-		'password' : 'gideonairexs'
-	}
-} )
-	.then( function ( disqueue ) {
+var disque = new Disqueue( {
+	//'auth' : {
+		//'password' : 'gideonairex'
+	//}
+} );
 
-		process.stdin.on( 'data', function () {
+disque.on( 'error', function ( error ) {
+	console.log( error );
+} );
 
-			disqueue.request( 'v1.users.get', 'HELLO ', 0 )
-				.then( function ( user ) {
+disque.on( 'connected', function () {
 
-					return user;
+	var server = http.createServer( function ( request, reply ) {
 
-				} )
-				.then( function ( user ) {
+		disque.addJob( {
+			'queue'   : 'test',
+			'job'     : 'Hello world'
+		}, function ( error, data ) {
 
-					return disqueue.request( 'v1.users.save', user, 0 );
-
-				} )
-				.then( function ( result ) {
-					console.log( result );
-				} )
-				.catch( function ( error ) {
-
-					console.log( error.message );
-
-				} );
-
-			disqueue.request( 'v1.users.get', 'YAmii', 0 )
-				.then( function ( yami ) {
-					console.log( yami );
-				} );
+			reply.end( data );
 
 		} );
 
 	} );
+
+	server.listen( 9991 );
+
+} );
