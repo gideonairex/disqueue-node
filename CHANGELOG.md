@@ -1,3 +1,8 @@
+### 1.0.0
+* Refactor disqueue client
+* Removed RPC
+* Cleaner commands list
+
 ### 0.2.0
 * Remove register listeners
 * Add tcp names
