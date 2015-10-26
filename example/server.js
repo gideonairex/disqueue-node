@@ -8,13 +8,18 @@ var disque = new Disqueue( {
 	//}
 } );
 
+disque.on( 'error', function ( error ) {
+	console.log( error );
+} );
+
 function getJob () {
 
 	disque.getJob( {
 		'count' : 10,
-		'queue' : 'test'
+		'queue' : [ 'test', 'test2' ]
 	}, function ( error, data ) {
 
+		console.log( data );
 		var jobIds = [];
 
 		if ( data ) {

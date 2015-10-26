@@ -19,9 +19,12 @@ disque.on( 'connected', function () {
 
 		disque.addJob( {
 			'queue' : 'test',
-			'job'   : 'Hello world'
+			'job'   : 'Hello world',
+			'delay' : 2,
+			'ttl'   : 3
 		}, function ( error, data ) {
 
+			console.log( error );
 			reply.end( data );
 
 		} );
