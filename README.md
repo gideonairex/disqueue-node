@@ -15,14 +15,21 @@ __ADDJOB__
 disqueue.addJob( {
  'queue', <queue>,
  'job' : <job>,
- 'timeout' : 10
+ 'timeout' : <ms-seconds>, // optional defaults to 0
+ 'replicate' : <count>, // optional
+ 'delay' : <seconds>, // optional
+ 'retry' : <seconds>, // optional
+ 'ttl'   : <seconds>, // optional
+ 'maxlen' : <count>, // optional
+ 'async' : <true> // optional
 }, callback )
 ```
 __GETJOB__
 ```javascript
 disqueue.getJob( {
- 'queue', <queue>,
- 'count' : <count>
+ 'queue', <queue>, // can be a string or an array of queues
+ 'count' : <count>,
+ 'nohang' : <true> // Optional defaults to false
 }, callback )
 ```
 __FASTACK__
