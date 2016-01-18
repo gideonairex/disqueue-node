@@ -32,7 +32,7 @@ describe( '"ADDJOB"', function () {
 		} );
 
 		it( 'should return object', function () {
-			data.length.should.equal( 48 );
+			data.length.should.equal( 40 );
 		} );
 
 	} );
