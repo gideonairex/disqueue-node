@@ -23,11 +23,11 @@
   "author": "Gideon Rosales",
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^2.9.33",
+    "bluebird": "^3.1.1",
     "colors": "^1.1.2",
     "double-ended-queue": "^0.9.7",
     "hiredis": "^0.4.0",
-    "lodash": "^3.10.0",
+    "lodash": "^4.0.0",
     "node-uuid": "^1.4.3"
   },
   "devDependencies": {
