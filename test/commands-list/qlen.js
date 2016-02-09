@@ -26,8 +26,10 @@ describe( '"QLEN"', function () {
 					disqueue.getJob( {
 						'queue' : 'qlen-job-test',
 						'count' : 10
-					}, function () {
-						done();
+					}, function ( getError, getJobs ) {
+						disqueue.fastAck( getJobs[ 0 ].jobId, function () {
+							done();
+						} );
 					} );
 				} );
 			} );
