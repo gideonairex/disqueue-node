@@ -1,3 +1,7 @@
+### 1.1.0
+* Add decorators from disqueu raw
+* Complete tests for existing commands
+
 ### 1.0.0
 * Refactor disqueue client
 * Removed RPC
