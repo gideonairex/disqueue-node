@@ -4,8 +4,8 @@ var Disqueue = require( '../../' );
 
 require( 'should' );
 
-describe( '"FASTACK"', function () {
-	describe( 'successful ackJob', function () {
+describe( '"NACK"', function () {
+	describe( 'successful nack', function () {
 		var disqueue;
 		var data;
 
@@ -18,12 +18,14 @@ describe( '"FASTACK"', function () {
 
 		before( function ( done ) {
 			disqueue.addJob( {
-				'queue' : 'fast-ack-job-test',
+				'queue' : 'ack-job-test',
 				'job'   : 'Hello world'
 			}, function ( error, result ) {
-				disqueue.fastAck( result, function ( errorFastAckJob, resultFastAckJob ) {
-					data = resultFastAckJob;
-					done();
+				disqueue.dequeue( result, function () {
+					disqueue.nack( result, function ( errorAckJob, resultNackJob ) {
+						data = resultNackJob;
+						done();
+					} );
 				} );
 			} );
 		} );

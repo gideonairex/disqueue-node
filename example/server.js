@@ -25,25 +25,19 @@ function getJob () {
 		if ( data ) {
 
 			data.forEach( function ( job ) {
-				jobIds.push( job[ 1 ] );
+				disque.show( job.jobId, function ( errorDetail, jobDetail ) {
+					console.log( jobDetail );
+				} );
+				jobIds.push( job.jobId );
 			} );
 
-			//disque.show( jobIds, function ( error, nack ) {
-
-				//console.log( nack );
-
-			//} );
 
 			disque.nack( jobIds, function ( errorNack, nack ) {
-
 				console.log( nack );
-
 			} );
 
 			disque.fastAck( jobIds, function ( errorFastAck, ack ) {
-
 				console.log( ack );
-
 			} );
 
 			getJob();
