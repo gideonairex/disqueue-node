@@ -29,6 +29,7 @@ __GETJOB__
 disqueue.getJob( {
  'queue', <queue>, // can be a string or an array of queues
  'count' : <count>,
+ 'withcounters' : <true>, // Optional defaults to false
  'nohang' : <true> // Optional defaults to false
 }, callback )
 ```

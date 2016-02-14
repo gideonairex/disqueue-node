@@ -1,3 +1,6 @@
+### 1.2.0
+* Add working command
+
 ### 1.1.0
 * Add decorators from disqueu raw
 * Complete tests for existing commands
