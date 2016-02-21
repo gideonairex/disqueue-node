@@ -2,7 +2,7 @@
 
 var Disqueue = require( '../../' );
 
-require( 'should' );
+var should = require( 'should' );
 
 describe( '"SHOW"', function () {
 	describe( 'successful show', function () {
@@ -56,4 +56,24 @@ describe( '"SHOW"', function () {
 			data.should.have.property( 'next-awake-within' );
 		} );
 	} );
+
+	describe( ' successful show, even for non-existent job', function () {
+		var disqueue;
+
+		before( function ( done ) {
+			disqueue = new Disqueue();
+			disqueue.on( 'connected', function () {
+				done();
+			} );
+		} );
+
+		it( 'should return null when job does not exist', function (done) {
+			disqueue.show('D-0ca28763-cEPWFkFi4lF6unhxsfQCAto7-05a1', function (err, job) {
+				should(job).equal( null );
+				done();
+			});
+		} );
+
+	} );
+
 } );
