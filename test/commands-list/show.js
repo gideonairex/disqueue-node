@@ -1,7 +1,7 @@
 'use strict';
 
 var Disqueue = require( '../../' );
-
+/* eslint handle-callback-err: 1 */
 var should = require( 'should' );
 
 describe( '"SHOW"', function () {
@@ -57,7 +57,7 @@ describe( '"SHOW"', function () {
 		} );
 	} );
 
-	describe( ' successful show, even for non-existent job', function () {
+	describe( 'successful show, even for non-existent job', function () {
 		var disqueue;
 
 		before( function ( done ) {
@@ -67,13 +67,12 @@ describe( '"SHOW"', function () {
 			} );
 		} );
 
-		it( 'should return null when job does not exist', function (done) {
-			disqueue.show('D-0ca28763-cEPWFkFi4lF6unhxsfQCAto7-05a1', function (err, job) {
-				should(job).equal( null );
+		it( 'should return null when job does not exist', function ( done ) {
+			disqueue.show( 'D-0ca28763-cEPWFkFi4lF6unhxsfQCAto7-05a1', function ( err, job ) {
+				should( job ).equal( null );
 				done();
-			});
+			} );
 		} );
-
 	} );
 
 } );
