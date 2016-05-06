@@ -77,4 +77,32 @@ describe( '"GETJOB"', function () {
 			}
 		} );
 	} );
+
+	describe( 'no data in queue', function () {
+		var disqueue;
+		var data;
+
+		before( function ( done ) {
+			disqueue = new Disqueue();
+			disqueue.on( 'connected', function () {
+				done();
+			} );
+		} );
+
+		before( function ( done ) {
+			disqueue.getJob( {
+				'count'        : 10,
+				'queue'        : 'get-job-withoutdata-test',
+				'withcounters' : true,
+				'nohang'       : true
+			}, function ( errorGetJob, resultGetJob ) {
+				data = resultGetJob;
+				done();
+			} );
+		} );
+
+		it( 'should return empty array', function () {
+			data.length.should.equal( 0 );
+		} );
+	} );
 } );
