@@ -10,60 +10,108 @@ Install [Disque](https://github.com/antirez/disque)
 Connect to disqueue then you can use the connected disqueue( [examples](https://github.com/gideonairex/disqueue-node/tree/master/example) )
 
 ## API
-__ADDJOB__
-```javascript
-disqueue.addJob( {
- 'queue', <queue>,
- 'job' : <job>,
- 'timeout' : <ms-seconds>, // optional defaults to 0
- 'replicate' : <count>, // optional
- 'delay' : <seconds>, // optional
- 'retry' : <seconds>, // optional
- 'ttl'   : <seconds>, // optional
- 'maxlen' : <count>, // optional
- 'async' : <true> // optional
-}, callback )
-```
-__GETJOB__
-```javascript
-disqueue.getJob( {
- 'queue', <queue>, // can be a string or an array of queues
- 'count' : <count>,
- 'withcounters' : <true>, // Optional defaults to false
- 'nohang' : <true> // Optional defaults to false
-}, callback )
-```
-__FASTACK__
-```javascript
-disqueue.fastAck( <ARRAY of IDS|STRING of the ID>, callback );
-```
+
 __ACKJOB__
 ```javascript
 disqueue.ackJob( <ARRAY of IDS|STRING of the ID>, callback );
 ```
 
+__ADDJOB__
+```javascript
+disqueue.addJob( {
+ 'queue'     :<queue>,
+ 'job'       : <job>,
+ 'timeout'   : <ms-seconds>, // optional defaults to 0
+ 'replicate' : <count>,      // optional
+ 'delay'     : <seconds>,    // optional
+ 'retry'     : <seconds>,    // optional
+ 'ttl'       : <seconds>,    // optional
+ 'maxlen'    : <count>,      // optional
+ 'async'     : <true>        // optional defaults to false
+}, callback )
+```
+
+__AUTH__
+```javascript```
+disqueue.auth( {
+	'password' : <password>
+}. callback );
+```
+
+__DEL__
+```javascript```
+disqueue.delJob( <ARRAY of IDS|STRING of the ID>, callback );
+```
+
+__DEQUEUE__
+```javascript```
+disqueue.dequeue( <ARRAY of IDS|STRING of the ID>, callback );
+```
+
+__ENQUEUE__
+```javascript```
+disqueue.dequeue( <ARRAY of IDS|STRING of the ID>, callback );
+```
+
+__FASTACK__
+```javascript
+disqueue.fastAck( <ARRAY of IDS|STRING of the ID>, callback );
+```
+
+__GETJOB__
+```javascript
+disqueue.getJob( {
+ 'queue'        : <queue>, // can be a string or an array of queues
+ 'count'        : <count>,
+ 'withcounters' : <true>,  // optional defaults to false
+ 'nohang'       : <true>   // optional defaults to false
+}, callback )
+```
+
+__HELLO__
+```javascript
+disqueue.hello( {}, callback );
+```
+
+__INFO__
+```javascript
+disqueue.info( {}, callback );
+```
+
+__NACK__
+```javascript
+disqueue.nack( <ARRAY of IDS|STRING of the ID>, callback );
+```
+
+__QLEN__
+```javascript
+disqueue.qlen( <queue-name>, callback );
+```
+
+__SHOW__
+```javascript
+disqueue.show( <job-id>, callback );
+```
+
+__WORKING__
+```javascript
+disqueue.working( <job-id>, callback );
+```
 
 ## Authentication
 To connect to disque just add password
 ```javascript
-'use strict';
-
 var options = {
  'auth' : {
   'password' : 'gideonairex'
  }
 };
-
 var disqueue = new Disqueue( options );
 
-diqueue.on( 'connected', function () {
-} );
-
+diqueue.on( 'connected', function () {} );
 ```
 Or you just add options and use the default port and host
 ```javascript
-'use strict';
-
 var options = {
  'host' : '127.0.0.1',
  'port' : 7777,
@@ -71,23 +119,19 @@ var options = {
   'password' : 'gideonairex'
  }
 };
-
 var disqueue = new Disqueue( options );
 
-diqueue.on( 'connected', function () {
-} );
+diqueue.on( 'connected', function () {} );
 ```
 
 ## Usage
 ```javascript
-'use strict'
-
 var Disqueue = require( 'disqueue-node' );
 var disqueue = new Disqueue();
 diqueue.on( 'connected', function () {
  disqueue.addJob( {
   'queue' : 'test',
-  'job' : 'hello world'
+  'job'   : 'hello world'
  }, function ( error, addJobResult ) {
  } );
 } );
