@@ -9,6 +9,21 @@ Install [Disque](https://github.com/antirez/disque)
 ## How to use
 Connect to disqueue then you can use the connected disqueue( [examples](https://github.com/gideonairex/disqueue-node/tree/master/example) )
 
+## Options
+```javascript
+var options = {
+ 'host' : <host>, // defaults to '127.0.0.1'
+ 'port' : <port>, // defaults to 7777
+ 'auth' : {
+  'password' : 'gideonairex'
+ },
+ 'retryMax'   : <count>, // defaults to 5
+ 'retryCount' : <ms>     // defaults to 200 ms
+};
+
+var disqueue = new Disqueue( options );
+```
+
 ## API
 
 __ACKJOB__
@@ -19,7 +34,7 @@ disqueue.ackJob( <ARRAY of IDS|STRING of the ID>, callback );
 __ADDJOB__
 ```javascript
 disqueue.addJob( {
- 'queue'     :<queue>,
+ 'queue'     : <queue>,
  'job'       : <job>,
  'timeout'   : <ms-seconds>, // optional defaults to 0
  'replicate' : <count>,      // optional
@@ -32,24 +47,24 @@ disqueue.addJob( {
 ```
 
 __AUTH__
-```javascript```
+```javascript
 disqueue.auth( {
 	'password' : <password>
 }. callback );
 ```
 
 __DEL__
-```javascript```
+```javascript
 disqueue.delJob( <ARRAY of IDS|STRING of the ID>, callback );
 ```
 
 __DEQUEUE__
-```javascript```
+```javascript
 disqueue.dequeue( <ARRAY of IDS|STRING of the ID>, callback );
 ```
 
 __ENQUEUE__
-```javascript```
+```javascript
 disqueue.dequeue( <ARRAY of IDS|STRING of the ID>, callback );
 ```
 
