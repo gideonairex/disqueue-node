@@ -65,7 +65,7 @@ disqueue.dequeue( <ARRAY of IDS|STRING of the ID>, callback );
 
 __ENQUEUE__
 ```javascript
-disqueue.dequeue( <ARRAY of IDS|STRING of the ID>, callback );
+disqueue.enqueue( <ARRAY of IDS|STRING of the ID>, callback );
 ```
 
 __FASTACK__
