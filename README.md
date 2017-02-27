@@ -103,6 +103,17 @@ __QLEN__
 disqueue.qlen( <queue-name>, callback );
 ```
 
+__QSCAN__
+```javascript
+disqueue.qscan( {
+  'count'      : int,  // optional
+  'busyloop'   : true, // optional defaults to false
+  'maxlen'     : int,  // optional
+  'minlen'     : int,  // optional
+  'importrate' : int   // optional
+}, callback )
+```
+
 __SHOW__
 ```javascript
 disqueue.show( <job-id>, callback );
