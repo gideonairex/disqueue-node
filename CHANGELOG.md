@@ -1,3 +1,6 @@
+### 1.4.0
+* Add qscan command
+
 ### 1.3.1
 * Update uuid to version 3.0.0
 
