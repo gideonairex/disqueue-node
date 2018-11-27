@@ -28,8 +28,8 @@ describe( '"WORKING"', function () {
             } );
         } );
 
-        it( 'should return true', function () {
-            data.should.equal( 1 );
+        it( 'should return a number', function () {
+            data.should.be.a.Number();
         } );
     } );
 } );
