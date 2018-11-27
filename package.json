@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "lint": "./scripts/eslint.sh && ./scripts/jscs.sh",
+    "lint": "./scripts/eslint.sh",
     "eslint": "eslint",
-    "jscs": "jscs",
     "mocha": "mocha"
   },
   "repository": {
@@ -23,17 +22,16 @@
   "author": "Gideon Rosales",
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^3.1.1",
-    "colors": "^1.1.2",
+    "bluebird": "^3.5.3",
+    "colors": "^1.3.2",
     "double-ended-queue": "^0.9.7",
     "hiredis": "^0.5.0",
-    "lodash": "^4.0.0",
-    "uuid": "^3.0.0"
+    "lodash": "^4.17.11",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "eslint": "^0.24.1",
-    "jscs": "^1.13.1",
-    "mocha": "^2.2.5",
-    "should": "^7.0.2"
+    "eslint": "^5.9.0",
+    "mocha": "^5.2.0",
+    "should": "^7.1.1"
   }
 }
