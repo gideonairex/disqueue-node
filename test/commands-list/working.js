@@ -28,7 +28,7 @@ describe( '"WORKING"', function () {
 			} );
 		} );
 
-		it( 'should return defailt retry 300', function () {
+		it( 'should return default retry 300', function () {
 			data.should.be.equal( 300 );
 		} );
 	} );

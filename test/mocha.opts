@@ -3,3 +3,4 @@
 --recursive
 --timeout 5000
 --bail
+--exit
