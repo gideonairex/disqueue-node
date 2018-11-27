@@ -6,7 +6,7 @@ require( 'should' );
 
 describe( 'disqueue construct', function () {
 
-	describe( 'should create and instance of disqueue', function () {
+	describe( 'should create an instance of disqueue', function () {
 
 		var disqueue;
 
@@ -34,15 +34,15 @@ describe( 'disqueue construct', function () {
 
 		before( function ( done ) {
 
-			disqueue = new Disqueue( {
-				'port' : 9999,
-				'host' : 'invalid'
-			} );
+			disqueue = new Disqueue({
+				'port': 9999,
+				'host': 'invalid',
+				'retryMax': 1
+			});
 
-			disqueue.on( 'error', function () {
+			disqueue.on('error', function () {
 				done();
-			} );
-
+			});
 		} );
 
 		it( 'should emit error', function () {

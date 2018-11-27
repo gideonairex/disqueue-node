@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - "0.12.4"
+  - "11.2.0"
 
 before_install:
   - npm install -g npm
@@ -16,5 +16,4 @@ before_script:
   - ./disque_server/bin/disque PING
 
 scripts:
-  - npm run lint
   - npm test
