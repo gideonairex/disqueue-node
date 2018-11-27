@@ -1,3 +1,3 @@
 #!/bin/sh
 
-npm run eslint -- --reset --eslintrc ./
+npm run eslint -- --quiet --eslintrc ./
