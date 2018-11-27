@@ -1,6 +1,6 @@
 {
   "name": "disqueue-node",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "node.js client for disque ( rpc )",
   "main": "index.js",
   "scripts": {
@@ -23,12 +23,10 @@
   "author": "Gideon Rosales",
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^3.1.1",
-    "colors": "^1.1.2",
     "double-ended-queue": "^0.9.7",
-    "hiredis": "^0.4.0",
     "lodash": "^4.0.0",
-    "node-uuid": "^1.4.3"
+    "redis": "^2.8.0",
+    "redis-parser": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "^0.24.1",

@@ -49,4 +49,7 @@ function getJob () {
 
 }
 
-getJob();
+disque.on('connected', function () {
+	getJob();
+});
+
