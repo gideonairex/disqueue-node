@@ -39,7 +39,7 @@ describe( 'disqueue construct', function () {
 				'host' : 'invalid'
 			} );
 
-			disqueue.on( 'error', function () {
+			disqueue.on('error', function (e) {
 				done();
 			} );
 
