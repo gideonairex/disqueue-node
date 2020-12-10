@@ -17,6 +17,7 @@ var options = {
  'auth' : {
   'password' : 'gideonairex'
  },
+ 'returnBuffers': <boolean>, // use Redis buffers instead of strings 
  'retryMax'   : <count>, // defaults to 5
  'retryCount' : <ms>     // defaults to 200 ms
 };
